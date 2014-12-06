@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -19,6 +19,7 @@
   <link rel="stylesheet" type="text/css" href="css/webflow.css">
   <link rel="stylesheet" type="text/css" href="css/iecs.css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script>
     WebFont.load({
       google: {
@@ -26,6 +27,21 @@
       }
     });
   </script>
+
+  <script type="text/javascript">
+    var _103slidesChilds;
+    $(document).ready(function () {
+      _103slidesChilds = $('#103slides > div');
+      $('#103slides').load('./partials/103_powerpoint.html div[data-showin-index="true"]', function () {
+        //http://stackoverflow.com/a/6062732
+        $('#103slides > div').each(function () {
+          $(this).prependTo(this.parentNode);
+        });
+        $('#103slides').append(_103slidesChilds);
+      });
+    });
+  </script>
+
   <script type="text/javascript" src="js/modernizr.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 </head>
@@ -67,26 +83,11 @@
         <div class="w-col w-col-4 align-right">
           <h2>簡報下載</h2>
         </div>
-        <div class="w-col w-col-8">
-		
-		  <h3 class="slidetitle">Chapter 6：Debug</h3>
-          <p>這不是Bug，這是功能(笑)
-          <br>
-          <br>下載：<a href="./103/Ch6.pdf" target="_blank">Chapter 6 PDF Slides</a></p>
-		
-		  <h3 class="slidetitle">Chapter 5：Array &amp;&nbsp;String</h3>
-          <p>啊!變數宣告區好多變數，看了頭好暈喔！有沒有辦法讓我們的變數宣告曲變簡潔呢？
-          <br>
-          <br>下載：<a href="./103/Ch5.pdf" target="_blank">Chapter 5 PDF Slides</a>、<a href="./103/Attachment/Ch5 Additional information.pdf" target="_blank">補充資料</a></p>
-		  
-		  <h3 class="slidetitle">Chapter 4：Function &amp;&nbsp;Recursion</h3>
-		  <p>main裡面愈寫愈多，是時候學函式了！！還有遞迴~~遞迴~~
-		  <br>
-		  <br>下載：<a href="./103/Ch4.pdf" target="_blank">Chapter 4 PDF Slides</a>、<a href="./103/Attachment/Ch4.zip">額外檔案(範例程式碼)</a></p>
-                    
-		  <h3 class="slidetitle">Older Slides：</h3>
-          <p><a href="./slides.html" target="_blank">其他比較舊的簡報可以從這裡進去下載。</a>
-          </p>
+        <div class="w-col w-col-8" id="103slides">
+          <div>
+            <h3 class="slidetitle">Older Slides：</h3>
+            <p><a href="./slides.html" target="_blank">其他比較舊的簡報可以從這裡進去下載。</a></p>
+          </div>
         </div>
       </div>
     </div>
