@@ -24,11 +24,8 @@
           loadSubPage('#102slides', './partials/102_powerpoint.html');
       });
 
-      //http://stackoverflow.com/a/6098159
       function loadSubPage(div_id, page_name) {
-          $(div_id).load(page_name, function () {
-              $('#right').append($(div_id).html());
-          });
+          $(div_id).load(page_name);
       }
   </script>
 
